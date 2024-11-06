@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const props = defineProps<{
   label: string
-  theme: 'black' | 'white'
   leftIcon?: string
   rightIcon?: string
+  theme: 'black' | 'white'
   bordered?: boolean
   width?: string
   height?: string
@@ -19,14 +19,10 @@ const emits = defineEmits<{
   (e: 'click'): Promise<void>
 }>()
 const onclick = () => {
-  if (props.disabled || props.loading) {
-    return
-  }
+  if (props.disabled || props.loading) return
 
   emits('click')
-  if (props.target) {
-    location.href = props.target
-  }
+  if (props.target) location.href = props.target
 }
 
 const getWidth = () => props.width ?? '230px'
